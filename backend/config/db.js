@@ -1,8 +1,12 @@
 import mongoose from "mongoose";
 
-
 export const connectDB = async () => {
-    // Read the URI from an environment variable
-    await mongoose.connect(`${process.env.MONGODB_URI}/food_delivery`)
-        .then(() => console.log("DB connected"));
+    try {
+        console.log("Connecting to:", `${process.env.MONGODB_URI}/food_delivery`);
+        await mongoose.connect(`${process.env.MONGODB_URI}/food_delivery`);
+        console.log("DB connected");
+    } catch (error) {
+        console.error("DB connection failed:", error.message);
+        throw error; // This will show the actual error in Vercel logs
+    }
 }
