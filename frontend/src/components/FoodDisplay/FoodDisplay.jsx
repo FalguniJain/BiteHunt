@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import './FoodDisplay.css'
 import { StoreContext } from '../../context/StoreContext'
-import FoodItem from '../foodItem/foodItem';
+import FoodItem from '../FoodItem/FoodItem';
 
 // eslint-disable-next-line no-unused-vars
 const FoodDisplay = ({category}) => {
